@@ -8,6 +8,7 @@ import java.util.List;
 
 import it.jtomato.gson.AbridgedCast;
 import it.jtomato.gson.Rating;
+import it.jtomato.gson.Review;
 
 import org.junit.Test;
 
@@ -121,6 +122,22 @@ public class TestsMovie {
 		Movie movie = new Movie(m);
 		assertEquals(Arrays.asList("Per Robert","Svein Are"), movie.getAbridgedCast());
 		
+	}
+	@Test
+	public void setAndGetReview_returnsCorrect() {
+		it.jtomato.gson.Review review = new it.jtomato.gson.Review();
+		it.jtomato.gson.Review review2 = new it.jtomato.gson.Review();
+		review.quote = "This was shit.";
+		review2.quote = "It was ok, I guess.";
+		review.critic = "Per";
+		review2.critic = "Bernt";
+
+		List<Review> reviews = new ArrayList<>();
+		reviews.add(review);
+		reviews.add(review2);
+		Movie movie = new Movie(new it.jtomato.gson.Movie());
+		movie.setReview(reviews);
+		assertEquals(Arrays.asList("Per: This was shit.\n","Bernt: It was ok, I guess.\n"), movie.getReviews());
 	}
 	
 }
