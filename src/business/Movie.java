@@ -1,6 +1,7 @@
 package business;
 
 import it.jtomato.gson.AbridgedCast;
+import it.jtomato.gson.Review;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,6 +10,7 @@ import java.util.List;
 public class Movie {
 	
 	private it.jtomato.gson.Movie movie;
+	private List<it.jtomato.gson.Review> reviews;
 	
 	public Movie(it.jtomato.gson.Movie movie) {
 		this.movie = movie;	
@@ -63,5 +65,17 @@ public class Movie {
 		}
 		return cast;
 	}
+	public void setReview(List<Review> reviews){
+		this.reviews = reviews;
+	}
+	public List<String> getReviews(){
+		List<String> reviews = new ArrayList<String>();
+		for (int i = 0; i < this.reviews.size(); i++){ 
+			reviews.add(this.reviews.get(i).critic +": " + this.reviews.get(i).quote + "\n");
+		}
+		
+		return reviews;
+	}
+	
 	
 }

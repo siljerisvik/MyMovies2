@@ -17,6 +17,7 @@ public class Console {
 			System.out.println(movie.getId() + ": " + movie.getTitle());
 			System.out.println(movie.getGenre());
 			System.out.println(movie.getAbridgedCast());
+			System.out.println(movie.getReviews()+ "\n");
 
 		}
 		
